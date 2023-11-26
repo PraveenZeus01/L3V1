@@ -1,0 +1,54 @@
+Certainly! Below is a simple example of Python code for testing a login functionality using the `unittest` framework. Please note that this is a basic illustration, and in a real-world scenario, you would likely use more advanced testing tools and frameworks.
+
+```python
+import unittest
+
+class TestLoginFunctionality(unittest.TestCase):
+    def test_successful_login(self):
+        # Replace with actual login functionality
+        username = "valid_user"
+        password = "valid_password"
+        result = login(username, password)
+        self.assertTrue(result)
+
+    def test_invalid_login(self):
+        # Replace with actual login functionality
+        username = "invalid_user"
+        password = "invalid_password"
+        result = login(username, password)
+        self.assertFalse(result)
+
+    def test_account_lockout(self):
+        # Replace with actual login functionality
+        invalid_attempts = 3
+        username = "user_to_lock"
+        password = "incorrect_password"
+
+        # Simulate multiple invalid login attempts
+        for _ in range(invalid_attempts):
+            login(username, password)
+
+        # After reaching the maximum attempts, account should be locked
+        result = login(username, password)
+        self.assertFalse(result)
+
+# Replace this function with the actual login implementation in your application
+def login(username, password):
+    # Placeholder logic for illustration
+    valid_credentials = {"valid_user": "valid_password"}
+    if username in valid_credentials and valid_credentials[username] == password:
+        return True
+    else:
+        return False
+
+if __name__ == '__main__':
+    unittest.main()
+```
+
+In this example:
+
+- `test_successful_login` checks if a user can successfully log in.
+- `test_invalid_login` checks if the system rejects invalid login attempts.
+- `test_account_lockout` verifies that after a certain number of invalid attempts, the account is locked.
+
+You would need to adapt the `login` function to match the actual login implementation in your application. Additionally, you may want to use more sophisticated testing libraries for comprehensive testing in a real-world scenario.
